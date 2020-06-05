@@ -17,8 +17,16 @@
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="img/icon.svg">
+  <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="img/manifest/icons-192.png" sizes="192x192">
   <link rel="icon" type="image/png" href="img/manifest/icons-512.png" sizes="512x512">
+
+  <!-- Social media -->
+  <meta property="og:title" content="Générateur de signatures" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://adapei-meuse.github.io/signatures/" />
+  <meta property="og:image" content="https://adapei-meuse.github.io/signatures/img/signatures-social.png" />
 
   <!-- Manifest -->
   <link rel="manifest" href="manifest.json">
@@ -37,6 +45,7 @@
   <div class="container py-3">
     <form action="#" id="inputForm">
       <h2>Informations générales</h2>
+      <p>Entrez ici votre nom, prénom, votre fonction et le service et/ou l'établissement ou vous travaillez</p>
       <div class="form-group">
         <label for="nameInput">Nom et prénom</label>
         <input type="text" class="form-control" id="nameInput" placeholder="Andrew RYAN" required>
@@ -58,6 +67,7 @@
         </div>
       </div>
       <h2>Informations de contact</h2>
+      <p>Entrez ici vos informations de contact, comme votre adresse email ou un numéro de téléphone</p>
       <div class="form-group">
         <label for="emailInput">Adresse email</label>
         <input type="email" class="form-control" name="email" id="emailInput" placeholder="a.ryan@adapei-meuse.fr">
