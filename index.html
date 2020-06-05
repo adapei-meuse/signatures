@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Générateur de signatures - ADAPEI de la Meuse</title>
+  <meta name="description"
+    content="Cette application web permet de générer des signatures personnalisées pour Office 365">
+  <meta name="author" content="ADAPEI de la Meuse">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/img/icon.svg">
+  <link rel="icon" type="image/png" href="/img/manifest/icons-192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/img/manifest/icons-512.png" sizes="512x512">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" value="#0d6efd">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <!-- Bannière -->
+  <header class="container-parent py-3 bg-light">
+    <div class="container">
+      <h1>Générateur de signatures</h1>
+      <p class="mb-0">Cette application web permet de générer des signatures personnalisées pour Office 365</p>
+    </div>
+  </header>
+  <!-- Corps de page -->
+  <div class="container py-3">
+    <form action="#" id="inputForm">
+      <h2>Informations générales</h2>
+      <div class="form-group">
+        <label for="nameInput">Nom et prénom</label>
+        <input type="text" class="form-control" id="nameInput" placeholder="Andrew RYAN" required>
+      </div>
+      <div class="form-row">
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <label for="organisationTitleInput">Fonction</label>
+            <input type="text" name="organization-title" id="organisationTitleInput" class="form-control"
+              placeholder="Chef de service" required>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <label for="organisationInput">Établissement et/ou service</label>
+            <input type="text" class="form-control" name="organisation" id="organisationInput"
+              placeholder="Administration, ESAT de Cumières" required>
+          </div>
+        </div>
+      </div>
+      <h2>Informations de contact</h2>
+      <div class="form-group">
+        <label for="emailInput">Addresse email</label>
+        <input type="email" class="form-control" name="email" id="emailInput" placeholder="a.ryan@adapei-meuse.fr">
+      </div>
+      <div class="form-row">
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <label for="phoneInput">Numéro de téléphone</label>
+            <input type="tel" class="form-control" name="phone" id="phoneInput" placeholder="09 71 00 16 06">
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <label for="mobileInput">Numéro de mobile</label>
+            <input type="tel" class="form-control" name="mobile" id="mobileInput" placeholder="06 42 27 43 19">
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-block btn-primary">Générer la signature</button>
+    </form>
+  </div>
+  <!-- Pied de page -->
+  <footer class="container-parent py-3 bg-light mt-auto">
+    <div class="container">
+      <b>Signatures v1.0.0</b> © 2020 ADAPEI de la Meuse - <a
+        href="https://github.com/adapei-meuse/signatures">GitHub</a>
+    </div>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+  <!-- Scripts -->
+  <script>
+    /*!
+     * Signatures v1.0.0
+     * 2020 ADAPEI de la Meuse 
+     */
+    console.log("Signatures v1.0.0");
+
+    /** Genere un numero de telephone aleatoire */
+    const generatePhoneNumber = (prefix = "03") => prefix + Math.random().toString().substr(2, 8);
+  </script>
+</body>
+
+</html>
