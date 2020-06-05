@@ -59,7 +59,7 @@
       </div>
       <h2>Informations de contact</h2>
       <div class="form-group">
-        <label for="emailInput">Addresse email</label>
+        <label for="emailInput">Adresse email</label>
         <input type="email" class="form-control" name="email" id="emailInput" placeholder="a.ryan@adapei-meuse.fr">
       </div>
       <div class="form-row">
@@ -108,6 +108,9 @@
 
     /** Genere un numero de telephone aleatoire */
     const generatePhoneNumber = (prefix = "03") => prefix + Math.random().toString().substr(2, 8);
+
+    /** Genere une adresse mail */
+    const generateEmail = (name = "Andrew", surname = "RYAN") => name.substr(0, 1).toLowerCase() + "." + surname.toLowerCase() + "@adapei-meuse.fr";
   </script>
 </body>
 
