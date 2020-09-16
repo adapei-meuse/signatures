@@ -61,6 +61,12 @@ function mirrorInput(input, output) {
   output.innerText = input.value;
 }
 
+/**
+ * Indique la source de l'image à afficher
+ * 
+ * @param {HTMLFormElement} input SELECT
+ * @param {HTMLElement} output IMG
+ */
 function mirrorImg(input, output) {
   if (!input.value) return;
   output.src = "img/logos/" + input.value + ".png";
