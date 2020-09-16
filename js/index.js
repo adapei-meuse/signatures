@@ -14,6 +14,7 @@ const organisationInput = inputForm.querySelector("#organisationInput");
 const emailInput = inputForm.querySelector("#emailInput");
 const phoneInput = inputForm.querySelector("#phoneInput");
 const mobileInput = inputForm.querySelector("#mobileInput");
+const selectPole = inputForm.querySelector("#selectPole");
 
 const nameOutput = document.querySelector("#nameOutput");
 const orgTitleOutput = document.querySelector("#organisationTitleOutput");
@@ -21,6 +22,7 @@ const organisationOutput = document.querySelector("#organisationOutput");
 const emailOutput = document.querySelector("#emailOutput");
 const phoneOutput = document.querySelector("#phoneOutput");
 const mobileOutput = document.querySelector("#mobileOutput");
+const poleOutput = document.querySelector("#poleOutput");
 
 nameInput.addEventListener("change", (e) => mirrorInput(e.target, nameOutput));
 orgTitleInput.addEventListener("change", (e) =>
@@ -39,6 +41,10 @@ mobileInput.addEventListener("change", (e) =>
   mirrorInput(e.target, mobileOutput)
 );
 
+selectPole.addEventListener("change", (e) => 
+  mirrorImg(e.target, poleOutput)
+);
+
 /* const organisationSelect = inputForm.querySelector("#organisationSelect");
 organisationSelect.addEventListener("change", (e) => {
   mirrorInput(e.target, organisationOutput);
@@ -53,6 +59,11 @@ organisationSelect.addEventListener("change", (e) => {
 function mirrorInput(input, output) {
   if (!input.value) return;
   output.innerText = input.value;
+}
+
+function mirrorImg(input, output) {
+  if (!input.value) return;
+  output.src = "img/logos/" + input.value + ".png";
 }
 
 /**
