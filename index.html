@@ -46,10 +46,30 @@
     <form action="#" id="inputForm">
       <h2>Informations générales</h2>
       <p>Entrez ici votre nom, prénom, votre fonction et le service et/ou l'établissement ou vous travaillez</p>
-      <div class="form-group">
-        <label for="nameInput">Nom et prénom</label>
-        <input type="text" class="form-control" id="nameInput" placeholder="Jean Riviere" required>
+      <div class="form-row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="nameInput">Nom et prénom</label>
+            <input type="text" class="form-control" id="nameInput" placeholder="RIVIERE Jean" required>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="selectPole">Selection du pôle</label>
+            <select class="form-control" name="selectPole" id="selectPole">
+              <option value="Adapei">Adapei</option>
+              <option value="Les retro actifs">Les retro actifs</option>
+              <option value="Meuse Insertion">Meuse Insertion</option>
+              <option value="Pôle Adultes Dépendants">Pôle Adultes Dépendants</option>
+              <option value="Pôle Agricole">Pôle Agricole</option>
+              <option value="Pôle Enfance">Pôle Enfance</option>
+              <option value="Pôle Habitat">Pôle Habitat</option>
+              <option value="Pôle Industriel">Pôle Industriel</option>
+            </select>
+          </div>
+        </div>
       </div>
+      
       <div class="form-row">
         <div class="col-12 col-md-6">
           <div class="form-group">
@@ -88,19 +108,18 @@
           </div>
         </div>
       </div>
-      <!--<button type="submit" class="btn btn-block btn-primary">Générer la signature</button>-->
     </form>
 
     <h2>Aperçu de votre signature</h2>
     <p>Voici un aperçu en temps réel de votre signature. Modifiez les champs ci-dessous pour voir les changements</p>
     <div class="d-flex justify-content-center mb-3">
-      <div class="card d-flex flex-row rounded-0" id="outputCard" style="width: 480px;max-height:270px;">
-        <div class="w-auto d-flex align-items-center" id="outputLogo" style="background-color: #973872;">
-          <img src="img/logos/ADAPEI Meuse.svg" alt="Logo de l'ADAPEI" width="125">
+      <div class="card d-flex flex-row rounded-0" id="outputCard" style="width: 480px;max-height:270px; padding : 10px">
+        <div class="w-auto d-flex align-items-center" id="outputLogo" style="">
+          <img id="poleOutput" src="img/logos/ADAPEI.png" alt="Logo du Pôle" width="125">
         </div>
         <div class="w-100">
           <div class="card-body">
-            <h5 class="card-title mb-1" id="nameOutput">Jean Riviere</h5>
+            <h5 class="card-title mb-1" id="nameOutput">RIVIERE Jean</h5>
             <p class="card-text mb-1" id="organisationTitleOutput">Chef de service</p>
             <ul class="list-unstyled mb-0">
               <li class="d-flex align-items-center">
