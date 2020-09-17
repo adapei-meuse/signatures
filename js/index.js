@@ -1,16 +1,24 @@
 /**
- * Signatures 1.2.0
+ * Signatures
  * @author ADAPEI de la Meuse
+ * @version 1.2.0
  */
-console.log("Signatures v1.2.0");
+console.log("Signatures v 1.2.0");
 
-const inputForm = document.querySelector("#inputForm");
+/**
+ * INIT.
+ */
 
-inputForm.addEventListener("submit", (e) => e.preventDefault());
+// Désactivation de l'envoi par défaut du formulaire
+document.getElementById("inputForm").addEventListener("submit", (e) => e.preventDefault());
 
-const selectPole = inputForm.querySelector("#selectPole");
-const poleOutput = document.querySelector("#poleOutput");
-
+/**
+ * Déclaration des différents items du formulaire
+ * Pour ajouter un item il faut ajouter un champ de saisie au formulaire HTML
+ * /!\ Ce champ de saisie doit avoir un ID de la forme : "#itemInput" 
+ * Il faut aussi ajouter un champ cible dans lequel sera affiché la valeur de ce dernier
+ * Celui doit aussi être de la forme "#itemOutput"
+ */
 const items = [
   "name",
   "orgTitle",
@@ -21,16 +29,23 @@ const items = [
   "mobile"
 ];
 
+// Utilisés pour la selection de l'icone.
+const selectPole = document.getElementById("selectPole");
+const poleOutput = document.getElementById("poleOutput");
+
+/**
+ * Events bindings
+ */
 items.forEach(item => {
-  let input = "#" + item + "Input";
-  let output = "#" + item + "Output";
-  inputForm.querySelector(input).addEventListener("change", (e) =>
-    mirrorInput(e.target, document.querySelector(output))
+  let input = item + "Input";
+  let output = item + "Output";
+  document.getElementById(input).addEventListener("change", (e) =>
+    mirror(e.target, document.getElementById(output))
   );
 });
 
 selectPole.addEventListener("change", (e) => 
-  mirrorImg(e.target, poleOutput)
+  mirror(e.target, poleOutput)
 );
 
 /* const organisationSelect = inputForm.querySelector("#organisationSelect");
@@ -39,14 +54,44 @@ organisationSelect.addEventListener("change", (e) => {
 }); */
 
 /**
+ * 
+ * @param {HTMLFormElement} input 
+ * @param {HTMLElement} output 
+ */
+function mirror(input, output){
+  if(!input.value) return;
+
+  if(output.nodeName === "IMG"){
+    mirrorImg(input, output);
+  } else {
+    mirrorInput(input, output);
+    if(input.id === "domainInput"){
+      domainChanged(input);
+    }
+  }
+}
+
+/**
  * Reflete la valeur d'un champ de formulaire dans un element
  *
  * @param {HTMLFormElement} input
  * @param {HTMLElement} output
  */
 function mirrorInput(input, output) {
-  if (!input.value) return;
   output.innerText = input.value;
+}
+
+/**
+ * Indique la source de l'image à afficher
+ * 
+ * @param {HTMLFormElement} input SELECT
+ * @param {HTMLElement} output IMG
+ */
+function mirrorImg(input, output) {
+  output.src = "img/logos/" + input.value + ".png";
+  let color =  "#e6b000";
+  color = (input.value === "Diocese") ? "#0b4a6d" : "#e6b000";
+  document.getElementById("separator").style.borderColor = color;
 }
 
 /**
@@ -60,16 +105,6 @@ function domainChanged(input){
   }
 }
 
-/**
- * Indique la source de l'image à afficher
- * 
- * @param {HTMLFormElement} input SELECT
- * @param {HTMLElement} output IMG
- */
-function mirrorImg(input, output) {
-  if (!input.value) return;
-  output.src = "img/logos/" + input.value + ".png";
-}
 
 /**
  * Genere un numero de telephone aleatoire
