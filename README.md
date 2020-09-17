@@ -13,3 +13,10 @@ L'application tourne entièrement côté client à l'aide de Javascript, le serv
 ## Installation
 
 Pour installer cette appliation, copiez simplement le contenu de ce dépôt dans un dossier servi par votre serveur web, `/var/www/html` par exemple. Assurez-vous qu'il n'y ai pas de conflit de noms (exemple: `index.html` existe déjà), pour éviter cette erreur il est recommandé de copier l'application dans son propre dossier : `/var/www/html/signatures`
+
+
+## Changelog
+
+### v1.2.0
+
+Ajout de la selection du pôle ainsi que son logo
