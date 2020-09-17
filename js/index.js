@@ -8,46 +8,26 @@ const inputForm = document.querySelector("#inputForm");
 
 inputForm.addEventListener("submit", (e) => e.preventDefault());
 
-const nameInput = inputForm.querySelector("#nameInput");
-const orgTitleInput = inputForm.querySelector("#organisationTitleInput");
-const organisationInput = inputForm.querySelector("#organisationInput");
-const emailInput = inputForm.querySelector("#emailInput");
-const domainInput = inputForm.querySelector("#domainInput");
-const phoneInput = inputForm.querySelector("#phoneInput");
-const mobileInput = inputForm.querySelector("#mobileInput");
 const selectPole = inputForm.querySelector("#selectPole");
-
-const nameOutput = document.querySelector("#nameOutput");
-const orgTitleOutput = document.querySelector("#organisationTitleOutput");
-const organisationOutput = document.querySelector("#organisationOutput");
-const emailOutput = document.querySelector("#emailOutput");
-const domainOutput = document.querySelector("#domainOutput");
-const phoneOutput = document.querySelector("#phoneOutput");
-const mobileOutput = document.querySelector("#mobileOutput");
 const poleOutput = document.querySelector("#poleOutput");
 
-nameInput.addEventListener("change", (e) =>
-  mirrorInput(e.target, nameOutput)
-);
-orgTitleInput.addEventListener("change", (e) =>
-  mirrorInput(e.target, orgTitleOutput)
-);
-organisationInput.addEventListener("change", (e) =>
-  mirrorInput(e.target, organisationOutput)
-);
-emailInput.addEventListener("change", (e) =>
-  mirrorInput(e.target, emailOutput)
-);
-domainInput.addEventListener("change", (e) => {
-  mirrorInput(e.target, domainOutput);
-  domainChanged(e.target);
+const items = [
+  "name",
+  "orgTitle",
+  "organisation",
+  "email",
+  "domain",
+  "phone",
+  "mobile"
+];
+
+items.forEach(item => {
+  let input = "#" + item + "Input";
+  let output = "#" + item + "Output";
+  inputForm.querySelector(input).addEventListener("change", (e) =>
+    mirrorInput(e.target, document.querySelector(output))
+  );
 });
-phoneInput.addEventListener("change", (e) =>
-  mirrorInput(e.target, phoneOutput)
-);
-mobileInput.addEventListener("change", (e) =>
-  mirrorInput(e.target, mobileOutput)
-);
 
 selectPole.addEventListener("change", (e) => 
   mirrorImg(e.target, poleOutput)
