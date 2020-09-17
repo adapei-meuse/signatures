@@ -26,7 +26,9 @@ const phoneOutput = document.querySelector("#phoneOutput");
 const mobileOutput = document.querySelector("#mobileOutput");
 const poleOutput = document.querySelector("#poleOutput");
 
-nameInput.addEventListener("change", (e) => mirrorInput(e.target, nameOutput));
+nameInput.addEventListener("change", (e) =>
+  mirrorInput(e.target, nameOutput)
+);
 orgTitleInput.addEventListener("change", (e) =>
   mirrorInput(e.target, orgTitleOutput)
 );
