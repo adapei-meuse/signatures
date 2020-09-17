@@ -1,8 +1,8 @@
 /**
- * Signatures 1.0.0
+ * Signatures 1.2.0
  * @author ADAPEI de la Meuse
  */
-console.log("Signatures v1.0.0");
+console.log("Signatures v1.2.0");
 
 const inputForm = document.querySelector("#inputForm");
 
@@ -12,6 +12,7 @@ const nameInput = inputForm.querySelector("#nameInput");
 const orgTitleInput = inputForm.querySelector("#organisationTitleInput");
 const organisationInput = inputForm.querySelector("#organisationInput");
 const emailInput = inputForm.querySelector("#emailInput");
+const domainInput = inputForm.querySelector("#domainInput");
 const phoneInput = inputForm.querySelector("#phoneInput");
 const mobileInput = inputForm.querySelector("#mobileInput");
 const selectPole = inputForm.querySelector("#selectPole");
@@ -20,6 +21,7 @@ const nameOutput = document.querySelector("#nameOutput");
 const orgTitleOutput = document.querySelector("#organisationTitleOutput");
 const organisationOutput = document.querySelector("#organisationOutput");
 const emailOutput = document.querySelector("#emailOutput");
+const domainOutput = document.querySelector("#domainOutput");
 const phoneOutput = document.querySelector("#phoneOutput");
 const mobileOutput = document.querySelector("#mobileOutput");
 const poleOutput = document.querySelector("#poleOutput");
@@ -34,6 +36,10 @@ organisationInput.addEventListener("change", (e) =>
 emailInput.addEventListener("change", (e) =>
   mirrorInput(e.target, emailOutput)
 );
+domainInput.addEventListener("change", (e) => {
+  mirrorInput(e.target, domainOutput);
+  domainChanged(e.target);
+});
 phoneInput.addEventListener("change", (e) =>
   mirrorInput(e.target, phoneOutput)
 );
@@ -59,6 +65,17 @@ organisationSelect.addEventListener("change", (e) => {
 function mirrorInput(input, output) {
   if (!input.value) return;
   output.innerText = input.value;
+}
+
+/**
+ * 
+ * @param {HTMLFormElement} input 
+ */
+function domainChanged(input){
+  if(input.value === "@catholique55.fr"){
+    selectPole.value = "Diocese";
+    selectPole.dispatchEvent(new Event('change'));
+  }
 }
 
 /**
