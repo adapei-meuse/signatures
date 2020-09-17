@@ -89,9 +89,10 @@ function mirrorInput(input, output) {
  */
 function mirrorImg(input, output) {
   output.src = "img/logos/" + input.value + ".png";
-  let color =  "#e6b000";
-  color = (input.value === "Diocese") ? "#0b4a6d" : "#e6b000";
-  document.getElementById("separator").style.borderColor = color;
+  document
+    .getElementById("separator")
+    .style
+    .borderColor = (input.value === "Diocese") ? "#0b4a6d" : "#e6b000";
 }
 
 /**
