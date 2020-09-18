@@ -60,17 +60,8 @@
             </div>
             <div class="col-6">
               <div class="form-group">
-                <label for="selectPole">Selection du pôle</label>
-                <select class="form-control" name="selectPole" id="selectPole">
-                  <option value="Adapei">Adapei</option>
-                  <option value="Les retro actifs">Les retro actifs</option>
-                  <option value="Meuse Insertion">Meuse Insertion</option>
-                  <option value="Pôle Adultes Dépendants">Pôle Adultes Dépendants</option>
-                  <option value="Pôle Agricole">Pôle Agricole</option>
-                  <option value="Pôle Enfance">Pôle Enfance</option>
-                  <option value="Pôle Habitat">Pôle Habitat</option>
-                  <option value="Pôle Industriel">Pôle Industriel</option>
-                  <option value="Diocese" hidden>Diocèse</option>
+                <label for="poleInput">Selection du pôle</label>
+                <select class="form-control" name="poleInput" id="poleInput">
                 </select>
               </div>
             </div>
@@ -132,7 +123,7 @@
         <p>Voici un aperçu en temps réel de votre signature. Modifiez les champs ci-contre pour voir les changements</p>
         <div class="card d-flex flex-row rounded-0" id="outputCard" style="width: 480px;max-height:270px; padding : 10px">
         <div class="w-auto d-flex align-items-center" id="outputLogo">
-          <img id="poleOutput" src="img/logos/Adapei.png" alt="Logo du Pôle" width="125">
+          <img id="poleOutput" src="img/logos/adapei.png" alt="Logo du Pôle" width="125">
         </div>
         <!-- 
           Separator display 
@@ -192,7 +183,7 @@
   <!-- Pied de page -->
   <footer class="container-parent py-1 bg-light mt-auto">
     <div class="container">
-      <b>Signatures v1.2.0</b> © 2020 ADAPEI de la Meuse - <a
+      <b>Signatures v<span id="appRelease"></span></b> © 2020 ADAPEI de la Meuse - <a
         href="https://github.com/adapei-meuse/signatures">GitHub</a>
     </div>
   </footer>
