@@ -1,56 +1,51 @@
 /**
- * Signatures 1.2.0
+ * Signatures
  * @author ADAPEI de la Meuse
+ * @version 1.2.0
  */
-console.log("Signatures v1.2.0");
+console.log("Signatures v 1.2.0");
 
-const inputForm = document.querySelector("#inputForm");
+/**
+ * INIT.
+ */
 
-inputForm.addEventListener("submit", (e) => e.preventDefault());
+// Désactivation de l'envoi par défaut du formulaire
+document.getElementById("inputForm").addEventListener("submit", (e) => e.preventDefault());
 
-const nameInput = inputForm.querySelector("#nameInput");
-const orgTitleInput = inputForm.querySelector("#organisationTitleInput");
-const organisationInput = inputForm.querySelector("#organisationInput");
-const emailInput = inputForm.querySelector("#emailInput");
-const domainInput = inputForm.querySelector("#domainInput");
-const phoneInput = inputForm.querySelector("#phoneInput");
-const mobileInput = inputForm.querySelector("#mobileInput");
-const selectPole = inputForm.querySelector("#selectPole");
+/**
+ * Déclaration des différents items du formulaire
+ * Pour ajouter un item il faut ajouter un champ de saisie au formulaire HTML
+ * /!\ Ce champ de saisie doit avoir un ID de la forme : "#itemInput" 
+ * Il faut aussi ajouter un champ cible dans lequel sera affiché la valeur de ce dernier
+ * Celui doit aussi être de la forme "#itemOutput"
+ */
+const items = [
+  "name",
+  "orgTitle",
+  "organisation",
+  "email",
+  "domain",
+  "phone",
+  "mobile"
+];
 
-const nameOutput = document.querySelector("#nameOutput");
-const orgTitleOutput = document.querySelector("#organisationTitleOutput");
-const organisationOutput = document.querySelector("#organisationOutput");
-const emailOutput = document.querySelector("#emailOutput");
-const domainOutput = document.querySelector("#domainOutput");
-const phoneOutput = document.querySelector("#phoneOutput");
-const mobileOutput = document.querySelector("#mobileOutput");
-const poleOutput = document.querySelector("#poleOutput");
+// Utilisés pour la selection de l'icone.
+const selectPole = document.getElementById("selectPole");
+const poleOutput = document.getElementById("poleOutput");
 
-nameInput.addEventListener("change", (e) =>
-  mirrorInput(e.target, nameOutput)
-);
-orgTitleInput.addEventListener("change", (e) =>
-  mirrorInput(e.target, orgTitleOutput)
-);
-organisationInput.addEventListener("change", (e) =>
-  mirrorInput(e.target, organisationOutput)
-);
-emailInput.addEventListener("change", (e) =>
-  mirrorInput(e.target, emailOutput)
-);
-domainInput.addEventListener("change", (e) => {
-  mirrorInput(e.target, domainOutput);
-  domainChanged(e.target);
+/**
+ * Events bindings
+ */
+items.forEach(item => {
+  let input = item + "Input";
+  let output = item + "Output";
+  document.getElementById(input).addEventListener("change", (e) =>
+    mirror(e.target, document.getElementById(output))
+  );
 });
-phoneInput.addEventListener("change", (e) =>
-  mirrorInput(e.target, phoneOutput)
-);
-mobileInput.addEventListener("change", (e) =>
-  mirrorInput(e.target, mobileOutput)
-);
 
 selectPole.addEventListener("change", (e) => 
-  mirrorImg(e.target, poleOutput)
+  mirror(e.target, poleOutput)
 );
 
 /* const organisationSelect = inputForm.querySelector("#organisationSelect");
@@ -59,14 +54,45 @@ organisationSelect.addEventListener("change", (e) => {
 }); */
 
 /**
+ * 
+ * @param {HTMLFormElement} input 
+ * @param {HTMLElement} output 
+ */
+function mirror(input, output){
+  if(!input.value) return;
+
+  if(output.nodeName === "IMG"){
+    mirrorImg(input, output);
+  } else {
+    mirrorInput(input, output);
+    if(input.id === "domainInput"){
+      domainChanged(input);
+    }
+  }
+}
+
+/**
  * Reflete la valeur d'un champ de formulaire dans un element
  *
  * @param {HTMLFormElement} input
  * @param {HTMLElement} output
  */
 function mirrorInput(input, output) {
-  if (!input.value) return;
   output.innerText = input.value;
+}
+
+/**
+ * Indique la source de l'image à afficher
+ * 
+ * @param {HTMLFormElement} input SELECT
+ * @param {HTMLElement} output IMG
+ */
+function mirrorImg(input, output) {
+  output.src = "img/logos/" + input.value + ".png";
+  document
+    .getElementById("separator")
+    .style
+    .borderColor = (input.value === "Diocese") ? "#0b4a6d" : "#e6b000";
 }
 
 /**
@@ -80,16 +106,6 @@ function domainChanged(input){
   }
 }
 
-/**
- * Indique la source de l'image à afficher
- * 
- * @param {HTMLFormElement} input SELECT
- * @param {HTMLElement} output IMG
- */
-function mirrorImg(input, output) {
-  if (!input.value) return;
-  output.src = "img/logos/" + input.value + ".png";
-}
 
 /**
  * Genere un numero de telephone aleatoire
