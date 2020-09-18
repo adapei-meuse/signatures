@@ -1,9 +1,10 @@
 /**
  * Signatures
  * @author ADAPEI de la Meuse
- * @version 2.0.0
  */
-const RELEASE = "2.0.0"
+
+ // Version
+const RELEASE = "2.0.1"
 console.log("Signatures v " + RELEASE);
 document.getElementById("appRelease").innerText = RELEASE;
 
