@@ -8,8 +8,8 @@ Cette application web permet de générer des signatures personnalisées réalis
 
 ## Contributeurs
 
-- Maxence POETTE
-- Jorys PAULIN
+- Maxence Poette
+- Jorys Paulin
 
 ---
 
