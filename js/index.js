@@ -81,7 +81,9 @@ document.getElementById("inputForm").addEventListener("submit", (e) => e.prevent
  * Events binding
  */
 ITEMS.forEach(item => {
+  // Le champ de saisie
   let input = item + "Input";
+  // La cible pour l'affichage
   let output = item + "Output";
   document.getElementById(input).addEventListener("change", (e) =>
     mirror(e.target, document.getElementById(output))
@@ -95,13 +97,14 @@ ITEMS.forEach(item => {
  * @param {HTMLElement} output 
  */
 function mirror(input, output){
-  // la valeur est vide
+  // l'input est vide
   if(!input.value) return;
-
+  
   // l'output est une image
   if(output.nodeName === "IMG"){
     mirrorImg(input, output);
   } else {
+    // l'output est du texte
     mirrorInput(input, output);
 
     // le champ modifié est le domaine, on check si le domaine est déclencheur
@@ -136,6 +139,10 @@ function mirrorImg(input, output) {
     .getElementById("separator")
     .style
     .borderColor = LIST_POLES[input.value].color;
+}
+
+function setSeparatorColor(){
+
 }
 
 /**
