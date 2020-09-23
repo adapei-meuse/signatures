@@ -2,13 +2,14 @@
  * Signatures
  * @author ADAPEI de la Meuse
  */
-const RELEASE = "2.0.2"
+const RELEASE = "2.0.3"
 console.log("Signatures v " + RELEASE);
 document.getElementById("appRelease").innerText = RELEASE;
 
 // items présents dans le formulaire (item + "Input" / item + "Output")
 const ITEMS = [
   "name",
+  "surname",
   "orgTitle",
   "organisation",
   "email",
@@ -79,9 +80,14 @@ ITEMS.forEach(item => {
 function displayInputToOutput(input, output){
   // l'input est vide
   if(!input.value) return;
-
+  if(output.id === "nameOutput" || output.id === "surnameOutput"){
+    output.innerText = input.value;
+    champEmail = document.getElementById("emailInput")
+    champEmail.value = prenomNomToEmail(document.getElementById("nameInput").value, document.getElementById("surnameInput").value);
+    champEmail.dispatchEvent(new Event("change"));
+  }
   // l'output est une image
-  if(output.nodeName === "IMG"){
+  else if(output.nodeName === "IMG"){
     output.src = DEFAULT_IMG_PATH + POLES_ARRAY[input.value].src;
     setSeparatorBorderColor(document.getElementById("separator"), POLES_ARRAY[input.value].color);
   } else {
@@ -144,4 +150,13 @@ function hideOption(option){
 function selectValue(select, value){
   select.value = value;
   select.dispatchEvent(new Event('change'));
+}
+
+/**
+ * 
+ * @param {String} prenom 
+ * @param {String} nom 
+ */
+function prenomNomToEmail(prenom, nom){
+  return prenom.toLowerCase()[0] + '.' + nom.toLowerCase();
 }
