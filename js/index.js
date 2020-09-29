@@ -91,9 +91,12 @@ function displayInputToOutput(input, output){
     output.src = DEFAULT_IMG_PATH + POLES_ARRAY[input.value].src;
     setSeparatorBorderColor(document.getElementById("separator"), POLES_ARRAY[input.value].color);
   } else {
-    output.innerText = input.value;
+    
     if(input.id === "domainInput"){
+      output.innerText = input.value.toLowerCase();
       selectPoleFromDomaine(input);
+    } else {
+      output.innerText = input.value;
     }
   }
 }
