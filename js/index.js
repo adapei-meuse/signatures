@@ -100,6 +100,14 @@ function displayInputToOutput(input, output){
       output.innerText = input.value;
     }
   }
+  // Update de l'image
+  updateImageOutput();
+}
+
+/**
+ * Met à jour l'image de sortie ainsi que son lien de téléchargement
+ */
+function updateImageOutput(){
   window.scrollTo(0,0);
   html2canvas(document.getElementById("outputCard")).then(function (canvas){
     lien = canvas.toDataURL("image/jpeg");
