@@ -49,6 +49,10 @@ const POLES_ARRAY = [
 // Utilisé pour la selection de l'icone.
 var poleInput = document.getElementById("poleInput");
 
+// Checkboxes
+var checkMobileInput = document.getElementById("checkMobileInput");
+var checkPhoneInput = document.getElementById("checkPhoneInput");
+
 // Désactivation de l'envoi par défaut du formulaire
 document.getElementById("inputForm").addEventListener("submit", (e) => e.preventDefault());
 
@@ -71,6 +75,24 @@ ITEMS.forEach(item => {
     displayInputToOutput(e.target, document.getElementById(output))
   );
 });
+
+checkMobileInput.addEventListener("change", function(){
+  displayNone(document.getElementById("liMobile"));
+  updateImageOutput();
+});
+
+checkPhoneInput.addEventListener("change", function(){
+  displayNone(document.getElementById("liPhone"));
+  updateImageOutput();
+});
+
+/**
+ * 
+ * @param {HTMLLIElement} liElement 
+ */
+function displayNone(liElement){
+  liElement.getAttribute("class") === "d-none" ? liElement.setAttribute("class", "d-flex align-items-center") : liElement.setAttribute("class", "d-none");
+}
 
 /**
  * Affichage de l'input dans la cible (Image ou texte)
