@@ -2,7 +2,7 @@
  * Signatures
  * @author ADAPEI de la Meuse
  */
-const RELEASE = "2.1.0"
+const RELEASE = "2.1.2"
 console.log("Signatures v " + RELEASE);
 document.getElementById("appRelease").innerText = RELEASE;
 
@@ -131,7 +131,7 @@ function displayInputToOutput(input, output){
  */
 function updateImageOutput(){
   window.scrollTo(0,0);
-  html2canvas(document.getElementById("outputCard")).then(function (canvas){
+  html2canvas(document.getElementById("outputCard"), {scale: 0.85}).then(function (canvas){
     lien = canvas.toDataURL("image/jpeg");
     lienSignature = document.getElementById("lienSignature");
     document.getElementById("signatureOutput").src=lien;
