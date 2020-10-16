@@ -89,6 +89,7 @@ function displayInputToOutput(input, output){
   // l'output est une image
   else if(output.nodeName === "IMG"){
     output.src = DEFAULT_IMG_PATH + POLES_ARRAY[input.value].src;
+    output.crossOrigin = 'anonymous';
     setSeparatorBorderColor(document.getElementById("separator"), POLES_ARRAY[input.value].color);
   } else {
     
@@ -99,6 +100,14 @@ function displayInputToOutput(input, output){
       output.innerText = input.value;
     }
   }
+  window.scrollTo(0,0);
+  html2canvas(document.getElementById("outputCard")).then(function (canvas){
+    lien = canvas.toDataURL("image/jpeg");
+    lienSignature = document.getElementById("lienSignature");
+    document.getElementById("signatureOutput").src=lien;
+    lienSignature.href=lien;
+    lienSignature.download=document.getElementById("nameInput").value + "_" + document.getElementById("surnameInput").value + ".jpg";
+  });
 }
 
 /**
