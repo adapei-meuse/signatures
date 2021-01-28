@@ -34,6 +34,7 @@ const DEFAULT_IMG_PATH = "img/logos/";
  */
 const POLES_ARRAY = [
   adapei = { lib: "Adapei de la Meuse", color : SEPARATOR_COLORS.ADAPEI, src:  "adapei.png"},
+  adapei60 = { lib: "[60 ans] Adapei de la Meuse", color : SEPARATOR_COLORS.ADAPEI, src:  "60ans.jpg"},
   retroActif = { lib: "Les rétro actifs", color : SEPARATOR_COLORS.ADAPEI, src:  "retroActif.png"},
   meuseInsertion = { lib: "Meuse Insertion", color : SEPARATOR_COLORS.ADAPEI, src: "meuseInsertion.png"},
   adultesDependants = { lib: "Pôle Adultes Dépendants", color : SEPARATOR_COLORS.ADAPEI, src:  "adultesDependants.png"},
