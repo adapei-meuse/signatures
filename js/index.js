@@ -2,7 +2,7 @@
  * Signatures
  * @author ADAPEI de la Meuse
  */
-const RELEASE = "2.1.3"
+const RELEASE = "2.1.4"
 console.log("Signatures v " + RELEASE);
 document.getElementById("appRelease").innerText = RELEASE;
 
