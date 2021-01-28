@@ -2,7 +2,7 @@
  * Signatures
  * @author ADAPEI de la Meuse
  */
-const RELEASE = "2.1.2"
+const RELEASE = "2.1.3"
 console.log("Signatures v " + RELEASE);
 document.getElementById("appRelease").innerText = RELEASE;
 
@@ -42,6 +42,7 @@ const POLES_ARRAY = [
   habitat = { lib: "Pôle Habitat", color : SEPARATOR_COLORS.ADAPEI, src:  "habitat.png"},
   industriel = { lib: "Pôle Industriel", color : SEPARATOR_COLORS.ADAPEI, src: "industriel.png"},
   mobiMeuse = { lib: "Mobi'Meuse", color: SEPARATOR_COLORS.ADAPEI, src: "mobimeuse.png" },
+  abri = { lib: "Abri des Pèlerins", color: SEPARATOR_COLORS.ADAPEI, src: "abri.png" },
   diocese = { lib: "Diocèse", color : SEPARATOR_COLORS.DIOCESE, src:  "diocese.png", hidden: true, domaine: "@catholique55.fr"},
   mda = { lib: "Maison des Adolescents", color : SEPARATOR_COLORS.DIOCESE, src:  "mda.jpg", hidden: true, domaine: "@mda55.fr"},
 ];
