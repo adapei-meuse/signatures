@@ -46,6 +46,7 @@ const POLES_ARRAY = [
   abri = { lib: "Abri des Pèlerins", color: SEPARATOR_COLORS.ADAPEI, src: "abri.png" },
   diocese = { lib: "Diocèse", color : SEPARATOR_COLORS.DIOCESE, src:  "diocese.png", hidden: true, domaine: "@catholique55.fr"},
   mda = { lib: "Maison des Adolescents", color : SEPARATOR_COLORS.DIOCESE, src:  "mda.jpg", hidden: true, domaine: "@mda55.fr"},
+  amseaa = { lib: "AMSEAA", color : SEPARATOR_COLORS.ADAPEI, src:  "amseaa.jpg", hidden: true, domaine: "@amseaa.fr"},
 ];
 
 // Utilisé pour la selection de l'icone.
